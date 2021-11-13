@@ -1,22 +1,11 @@
-/*
-let numero = 5;
 
 
-let lanzamiento = setInterval(()=>{
-    console.log ('lanzamiento en'+ numero + 'segundos');
-    numero-- ;
-    if (numero == 0){
-        clearInterval(lanzamiento);
-    }
-
-},1000);
-*/
-
-
-
-let cuentaHora = parseInt(prompt('Ingrese las horas'));
-let cuentaMinutos = parseInt(prompt('Ingrese los minutos'));
-let cuentaSegundos = parseInt(prompt('Ingrese los segundos'));
+let cuentaHora = document.getElementById('ingresoHora')
+console.log ( 'prueba' + cuentaHora)
+let cuentaMinutos = 
+let cuentaSegundos = 
+let boton = document.getElementById('start');
+boton.disabled = false;
 
 function verHora() {
     segundos.innerHTML = cuentaSegundos
@@ -47,6 +36,9 @@ function playReloj() {
         if (cuentaSegundos && cuentaMinutos && cuentaHora == 0) {
            
         }
+        if (cuentaSegundos !== 0){
+            boton.disabled = true;
+        }
         segundos.innerHTML = cuentaSegundos;
         cuentaSegundos--;
         minutos.innerHTML = cuentaMinutos;
@@ -59,6 +51,10 @@ function resetReloj() {
         cuentaSegundos = 00;
         cuentaMinutos = 00;
         cuentaHora = 00;
+        clearInterval(contador)
+        boton.disabled = false
+
+        
     }
     segundos.innerHTML = cuentaSegundos;
     minutos.innerHTML = cuentaMinutos;
@@ -68,4 +64,5 @@ function resetReloj() {
 
 function stopReloj() {
     window.clearInterval(contador);
+    boton.disabled = false;
 }
